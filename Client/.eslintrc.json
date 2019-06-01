@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "globals": {
+    "fetch": "readonly"
+  },
+  "rules": {
+    "quotes": [1, "double"],
+    "linebreak-style": "off"
+  }
+}
