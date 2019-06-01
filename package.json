@@ -11,6 +11,8 @@
     "start_Server": "nodemon ./Server/index.js",
     "devPhil": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\" \"npm run start_DB_Phil\"",
     "devKasper": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\" \"npm run start_DB_Kasper\"",
+    "start_DB_Garv": "/Users/Garva/mongodb/bin/mongod.exe --dbpath=/Users/Garva/mongodb-data",
+    "devGarv": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\" \"npm run start_DB_Garv\"",
     "devLiveDB": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\""
   },
   "keywords": [],
