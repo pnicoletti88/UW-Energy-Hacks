@@ -3,7 +3,7 @@ import styles from "./About.module.css";
 
 const About = () => (
   <div className={styles.mainContainer}>
-    <h3>What are we?</h3>
+    <h3 className={styles.title}>What are we?</h3>
     <p>
         We aim to provide consumers with better insight about the
         companies which they use on daily basis. Using public governemnt
