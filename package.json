@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_DB_Phil": "/Users/phili/mongodb/bin/mongod.exe --dbpath=/Users/phili/mongodb-data",
+    "start_DB_Kasper": "/Users/mkasp/mongodb/bin/mongod.exe --dbpath=/Users/mkasp/mongodb-data",
     "start_Client": "npm start --prefix ./Client",
     "start_Server": "nodemon ./Server/index.js",
     "devPhil": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\" \"npm run start_DB_Phil\"",
+    "devKasper": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\" \"npm run start_DB_Kasper\"",
     "devLiveDB": "concurrently --kill-others \"npm run start_Server\" \"npm run start_Client\""
   },
   "keywords": [],
