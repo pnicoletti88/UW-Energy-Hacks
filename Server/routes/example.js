@@ -16,10 +16,24 @@ router.get("/getListName/", async (req, res) => {
   console.log(db);
   let wee = db.collection('garvV1').find({ "Year": {$eq: 2017}}).project({'Company Name':1, '_id':0}).toArray(function(err, documents) {
     if (err) throw error;
-    
-  
     res.send(documents);
 });
 });
+
+router.get("/getFinancialData/:name", async (req, res) => {
+  const name = req.params.name;
+  console.log(db);
+  let wee = db.collection('businesses').find({ "Company Name": name}).toArray(function(err, documents) {
+    if (err) throw error;
+    carbonE = {};
+    documents.forEach (function(element){
+      carbonE[element['Year']] = element['CarbonE Emissions'];
+    }); 
+  
+    res.send(carbonE);
+});
+});
+
+
 
 module.exports = router;
