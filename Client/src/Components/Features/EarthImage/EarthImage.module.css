@@ -6,11 +6,28 @@
 }
 
 .outerCircle{
-    background-color: #33b5e5;
+    background-color: #33b6e571;
     border-radius: 50%;
-    height: 550px;
-    width: 550px;
+    height: 500px;
+    width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.image {
+    animation: MoveUpDown 4s linear infinite;
+    position: absolute;
+    bottom: 100px;
+    max-width: 80%;
+    max-height: 80%;
+  }
+  
+  @keyframes MoveUpDown {
+    0%, 100% {
+      bottom: 30px;
+    }
+    50% {
+      bottom: 100px;
+    }
+  }
