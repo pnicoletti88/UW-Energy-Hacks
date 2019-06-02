@@ -10,9 +10,6 @@ const TempPage = () => (
     <div>
       <Chart />
     </div>
-    <div className={styles.elementToFadeInAndOut}>
-      <Loading loading background="#2ecc71" loaderColor="#3498db" />
-    </div>
   </div>
 );
 

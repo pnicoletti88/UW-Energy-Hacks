@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getSingleData } from "../../util/util";
 import SingleInformation from "../../Components/Features/SingleInformation/SingleInformation";
 import Loading from "../../Components/General/LoadingPage/LoadingPage";
+import styles from "./Single.module.css";
 
 class Single extends Component {
   constructor(props) {
@@ -24,17 +25,20 @@ class Single extends Component {
       this.setState({
         timePassed: true,
       });
-    }, 1200);
+    }, 1000);
   }
 
   render() {
     const { isLoading, data, timePassed } = this.state;
+
     if (isLoading || !timePassed) {
       return <Loading />;
     }
 
     return (
-      <SingleInformation {...data} />
+      <div className={styles.fadeIn}>
+        <SingleInformation {...data} />
+      </div>
     );
   }
 }
