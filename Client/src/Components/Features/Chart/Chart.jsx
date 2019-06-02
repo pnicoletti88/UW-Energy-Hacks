@@ -3,36 +3,24 @@ import { Line } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
 export default class Chart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chartData: {
-        labels: ["2017", "2016", "2015", "2014"],
-        datasets: [
-          {
-            label: "score",
-            data: [
-              10,
-              120,
-              130,
-              115,
-            ],
-            backgroundcolor: "rgba(255, 99, 132, 0.6",
-          },
-
-        ],
-      },
-
-    };
-  }
-
   render() {
-    const { chartData } = this.state;
+    const { data } = this.props;
     return (
       <div className={styles.container}>
         <div className={styles.Chart}>
           <Line
-            data={chartData}
+            data={{
+              labels: Object.keys(data),
+              datasets: [
+                {
+                  label: "score",
+                  data: Object.values(data),
+                  backgroundColor: "rgba(54, 170, 54, 0.6)",
+                  borderColor: "rgba(54, 170, 54, 0.6)",
+                },
+              ],
+
+            }}
             width={100}
             height={50}
             options={{
@@ -56,7 +44,25 @@ export default class Chart extends Component {
                   bottom: 15,
                 },
               },
-
+              title: {
+                display: true,
+                text: "Equivalent Carbon Emissions",
+                fontSize: 20,
+              },
+              scales: {
+                yAxes: [{
+                  scaleLabel: {
+                    labelString: "Thousands of Tons Emissions",
+                    display: true,
+                  },
+                }],
+                xAxes: [{
+                  scaleLabel: {
+                    labelString: "Year",
+                    display: true,
+                  },
+                }],
+              },
             }}
           />
         </div>

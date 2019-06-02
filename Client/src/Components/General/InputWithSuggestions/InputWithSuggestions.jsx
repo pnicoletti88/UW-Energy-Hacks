@@ -3,26 +3,6 @@ import Autosuggest from "react-autosuggest";
 import { Redirect } from "react-router-dom";
 import styles from "./InputWithSuggestions.css";
 
-const data = [
-  {
-    name: "phil",
-  },
-  {
-    name: "garv",
-  },
-  {
-    name: "matt",
-  },
-];
-
-const getSuggestions = (value) => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-
-  return inputLength === 0
-    ? []
-    : data.filter(lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue);
-};
 
 class InputWithSuggestions extends React.Component {
   constructor() {
@@ -35,12 +15,23 @@ class InputWithSuggestions extends React.Component {
     };
   }
 
-  getSuggestionValue = suggestion => suggestion.name;
+  getSuggestions = (value) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    const { data } = this.props;
+
+    return inputLength === 0
+      ? []
+      : data.filter(lang => lang.toLowerCase().slice(0, inputLength) === inputValue);
+  };
+
+  getSuggestionValue = suggestion => suggestion;
 
   // Use your imagination to render suggestions.
   renderSuggestion = suggestion => (
     <div>
-      {suggestion.name}
+      {suggestion}
     </div>
   );
 
@@ -55,7 +46,7 @@ class InputWithSuggestions extends React.Component {
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value),
+      suggestions: this.getSuggestions(value),
     });
   };
 

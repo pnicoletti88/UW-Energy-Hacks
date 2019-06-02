@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { getSingleData } from "../../util/util";
 import SingleInformation from "../../Components/Features/SingleInformation/SingleInformation";
 import Loading from "../../Components/General/LoadingPage/LoadingPage";
 import styles from "./Single.module.css";
+import Chart from "../../Components/Features/Chart/Chart";
+import Header from "../../Components/General/Header/Header";
 
 class Single extends Component {
   constructor(props) {
@@ -15,10 +18,11 @@ class Single extends Component {
 
   async componentDidMount() {
     const { match } = this.props;
-    const data = await getSingleData();
-    console.log(data);
+    const chartData = await axios.get(`http://localhost:5000/getFinancialData/${match.params.name}`);
+    const companyData = await axios.get(`http://localhost:5000/getCompanyData/${match.params.name}`);
     this.setState({
-      data,
+      chartData: chartData.data,
+      companyData: companyData.data,
       isLoading: false,
     });
     setTimeout(() => {
@@ -29,7 +33,12 @@ class Single extends Component {
   }
 
   render() {
-    const { isLoading, data, timePassed } = this.state;
+    const {
+      isLoading,
+      timePassed,
+      chartData,
+      companyData,
+    } = this.state;
 
     if (isLoading || !timePassed) {
       return <Loading />;
@@ -37,7 +46,11 @@ class Single extends Component {
 
     return (
       <div className={styles.fadeIn}>
-        <SingleInformation {...data} />
+        <Header />
+        <div className={styles.mainFlex}>
+          <SingleInformation {...companyData} />
+          <Chart data={chartData} />
+        </div>
       </div>
     );
   }

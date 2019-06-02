@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import About from "../../Components/Features/About/About";
 import EarthImage from "../../Components/Features/EarthImage/EarthImage";
 import styles from "./Home.module.css";
@@ -11,7 +12,13 @@ class Home extends Component {
     super(props);
     this.state = {
       displayType: HomePageType.ABOUT,
+      data: undefined,
     };
+  }
+
+  async componentDidMount() {
+    const data = await axios.get("http://localhost:5000/getListName/");
+    this.setState({ data: data.data });
   }
 
   changePageType = (newDispType) => {
@@ -21,10 +28,10 @@ class Home extends Component {
   }
 
   render() {
-    const { displayType } = this.state;
+    const { displayType, data } = this.state;
     const leftSide = displayType === HomePageType.ABOUT
       ? <About dataButtonClick={this.changePageType} />
-      : <Search />;
+      : <Search data={data} />;
     return (
       <div>
         <Header />

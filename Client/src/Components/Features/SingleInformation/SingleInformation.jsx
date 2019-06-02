@@ -2,41 +2,33 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./SingleInformation.module.css";
 
-const SingleInformation = (props) => {
-  const {
-    name,
-    grade,
-    score,
-    industry,
-    numEmployees,
-    ticker,
-  } = props;
-  return (
-    <div className={styles.mainContainer}>
-      <div className={styles.topContainer}>
+const SingleInformation = props => (
+  <div className={styles.mainContainer}>
+    <div className={styles.topContainer}>
         <div className={styles.name}>
-          {name}
-        </div>
-        <div className={styles.grade}>
-          {grade}
+          {props["Company Name"]}
         </div>
       </div>
-      <div className={styles.score}>
-        {`Score: ${score}`}
+    <div className={styles.score}>
+        {`Score: ${props.Score}`}
       </div>
-      <div>
+    <div>
         <div className={styles.detailsHeading}>
-        Details
+        Details:
         </div>
         <div className={styles.details}>
-          <p>{`Industry: ${industry}`}</p>
-          <p>{`Number of Employees: ${numEmployees}`}</p>
-          <p>{`Ticker: ${ticker}`}</p>
+          <p>{`Industry: ${props.Industry}`}</p>
+          <p>{`Number of Employees: ${props["Number of Employees"]}`}</p>
+          <p>{`Ticker: ${props.Ticker}`}</p>
         </div>
       </div>
-    </div>
-  );
-};
+    <div className={styles.grade}>
+        <div className={styles.gradeInner}>
+          {` CDP Grade: ${props["CDP Climate Change Grade"]}`}
+        </div>
+      </div>
+  </div>
+);
 
 SingleInformation.propTypes = {
   name: PropTypes.string.isRequired,

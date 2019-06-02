@@ -1,6 +1,13 @@
+.mainFlex{
+    display: flex;
+    height: 93vh;
+    align-items: center;
+}
+
 .fadeIn {
 -webkit-animation: fadeinout 1s linear forwards;
     animation: fadeinout 1s linear forwards;
+
 }
 
 @-webkit-keyframes fadeinout {

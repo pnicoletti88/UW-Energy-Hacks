@@ -10,7 +10,7 @@ const Header = () => (
       <img src={earth} alt="earth" className={styles.headerIcon} />
       <Link className={styles.link} to="/">
         <div className={styles.headerItemBold}>
-          Our Lovely Project
+          CETA
         </div>
       </Link>
       <Link className={styles.link} to="/">
@@ -18,7 +18,7 @@ const Header = () => (
           Home
         </div>
       </Link>
-      <Link className={styles.link} to="/data">
+      <Link className={styles.link} to="/">
         <div className={styles.headerItem}>
           Rankings
         </div>
