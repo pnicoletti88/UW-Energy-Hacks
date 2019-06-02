@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import styles from "./Search.module.css";
+import InputWithSuggestions from "../../General/InputWithSuggestions/InputWithSuggestions";
 
 class Search extends Component {
   constructor() {
@@ -14,8 +16,9 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.mainContainer}>
         <h3>Search for Stock:</h3>
+        <InputWithSuggestions />
       </div>
     );
   }
