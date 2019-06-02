@@ -12,7 +12,7 @@ export default class Chart extends Component {
           {
             label: "score",
             data: [
-              100,
+              10,
               120,
               130,
               115,

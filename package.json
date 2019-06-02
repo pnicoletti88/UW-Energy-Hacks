@@ -38,6 +38,7 @@
     "canvas": "^2.5.0",
     "chart.js": "^2.8.0",
     "react-bootstrap": "^1.0.0-beta.9",
-    "react-chartjs-2": "^2.7.6"
+    "react-chartjs-2": "^2.7.6",
+    "react-fullscreen-loading": "0.0.4"
   }
 }

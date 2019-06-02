@@ -4,6 +4,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+
 import Home from "./Containers/Home/Home";
 import TempPage from "./Containers/TempPage/TempPage";
 import Single from "./Containers/Single/Single";
@@ -18,5 +19,6 @@ const App = () => (
     </Switch>
   </Router>
 );
+
 
 export default App;
