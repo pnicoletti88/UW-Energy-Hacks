@@ -11,16 +11,15 @@ MongoClient.connect("mongodb://localhost:27017/",function(err,client){
 
 
 
-router.get("/example/:name", async (req, res) => {
+router.get("/getListName/", async (req, res) => {
   const name = req.params.name;
   console.log(db);
-  let wee = db.collection('garvV1').find({}).toArray(function(err, documents) {
+  let wee = db.collection('garvV1').find({ "Year": {$eq: 2017}}).project({'Company Name':1, '_id':0}).toArray(function(err, documents) {
     if (err) throw error;
-
+    
+  
     res.send(documents);
 });
-  console.log(wee);
-  //res.status(200).send(wee);
 });
 
 module.exports = router;
