@@ -1,0 +1,13 @@
+.button {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(54, 170, 54);
+    color: white;
+}
+
+.button:hover {
+    cursor: pointer;
+}

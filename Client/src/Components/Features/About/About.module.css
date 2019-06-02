@@ -1,8 +1,23 @@
 .mainContainer {
     flex: 50%;
+    padding-left: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.textArea {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: lightgrey;
 }
 
 .title{
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.buttonWrapper {
+    margin-top: 50px;
 }
