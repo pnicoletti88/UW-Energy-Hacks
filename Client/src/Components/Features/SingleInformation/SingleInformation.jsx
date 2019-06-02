@@ -29,9 +29,9 @@ const SingleInformation = (props) => {
         Details
         </div>
         <div className={styles.details}>
-          {`Industry: ${industry}`}
-          {`Number of Employees: ${numEmployees}`}
-          {`Ticker: ${ticker}`}
+          <p>{`Industry: ${industry}`}</p>
+          <p>{`Number of Employees: ${numEmployees}`}</p>
+          <p>{`Ticker: ${ticker}`}</p>
         </div>
       </div>
     </div>

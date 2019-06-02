@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { getSingleData } from "../../util/util";
 import SingleInformation from "../../Components/Features/SingleInformation/SingleInformation";
+import Loading from "../../Components/General/LoadingPage/LoadingPage";
 
 class Single extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
+      timePassed: false,
     };
   }
 
@@ -18,12 +20,17 @@ class Single extends Component {
       data,
       isLoading: false,
     });
+    setTimeout(() => {
+      this.setState({
+        timePassed: true,
+      });
+    }, 1200);
   }
 
   render() {
-    const { isLoading, data } = this.state;
-    if (isLoading) {
-      return (<div>Loading!</div>);
+    const { isLoading, data, timePassed } = this.state;
+    if (isLoading || !timePassed) {
+      return <Loading />;
     }
 
     return (
